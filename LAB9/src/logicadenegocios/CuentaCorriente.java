@@ -5,7 +5,6 @@
  * @version 06/01/2020
  */
 package logicadenegocios;
-
 import java.util.Calendar;
 
 public class CuentaCorriente extends Cuenta {
@@ -14,25 +13,23 @@ public class CuentaCorriente extends Cuenta {
   private int operacionesExentas;
   private double cuotaOperaciones;
   
-  
   /**
-   * Contructor para la clase CuentaCorriente
-   * @param pDueño
-   * @param pMonto 
+   * Contructor para la clase CuentaCorriente con datos por omision
+   * @param pDuenio propietario de la cuenta
+   * @param pMonto monto inicial de la cuenta
    */
-  public  CuentaCorriente(Cliente pDueño, double pMonto) {
-    super ("Cuenta Corriente ",++scantCuentas, pDueño,pMonto);
+  public  CuentaCorriente(Cliente pDuenio, double pMonto) {
+    super ("Cuenta Corriente ",++scantCuentas, pDuenio,pMonto);
     setOperacionesExentas(30);
     setCuotaOperaciones(30);
   }
   
-  
   /**
-   * Constructor para la clase CunetaCorriente.
-   * @param pDueño
-   * @param pMonto
-   * @param pOperExentas
-   * @param pCuotaOper 
+   * Constructor para la clase CunetaCorriente con datos ingresados por el cliente
+   * @param pDueño propietario de la cuenta
+   * @param pMonto monto inicial de la cuenta
+   * @param pOperExentas valor de las operaciones exentas
+   * @param pCuotaOper valor de la couta por operacion
    */
   public  CuentaCorriente(Cliente pDueño, double pMonto,
   int pOperExentas, double pCuotaOper) {
@@ -46,21 +43,22 @@ public class CuentaCorriente extends Cuenta {
     this.operacionesExentas = pOperacionesExentas;  
   }
   
+  public void setCuotaOperaciones(double pCuotaOperaciones){
+    this.cuotaOperaciones = pCuotaOperaciones;  
+  }
+  
   public int getOperacionesExentas(){
     return this.operacionesExentas ;  
   }
-  
-  public void setCuotaOperaciones(double pCuotaOperaciones){
-    this.cuotaOperaciones = pCuotaOperaciones;  
-  } 
   
   public double getCuotaOperaciones(){
     return this.cuotaOperaciones ;  
   }
   
   /**
-   * 
-   * @return El monto que se cobró en el mes.
+   * Metodo para realizar el cobro de las comisiones
+   * Se realiza solo si es el primer dia del mes
+   * @return Mensaje de exito, de no aplicar se devuelve cadena de caracteres vacia
    */
   public String cobrarComisiones(){
     String msg = " ";
@@ -69,7 +67,7 @@ public class CuentaCorriente extends Cuenta {
     Calendar calendario = Calendar.getInstance();
     int dia = calendario.get(Calendar.DAY_OF_MONTH);
     if (dia == 1){
-      operacNoExentas = numOperaciones - getCuotaOperaciones();
+      operacNoExentas = numOperaciones - getOperacionesExentas();
       if(operacNoExentas > 0){
         monto = getCuotaOperaciones() * operacNoExentas;
         retirar(monto);
@@ -80,7 +78,6 @@ public class CuentaCorriente extends Cuenta {
     }
     return msg;
   }
-    
     
 }
   

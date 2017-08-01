@@ -135,7 +135,7 @@ public abstract class Cuenta{
     msg = "Cuenta Número: "+getNumCuenta()+"\n";
     msg+= "Tipo: "+ getTipoCuenta()+"\n";
     msg+= "Fecha Creación: "+getFechaCreacion()+"\n";
-    msg+= "Dueño: "+duenio.toString()+"\n";
+    msg+= duenio.toString()+"\n";
     msg+= "Saldo: "+getSaldo()+"\n";
     msg+= "Registro de Operaciones\n";
     msg+= "Numero\tFecha\t\tOperacion\tMonto"+"\n";
