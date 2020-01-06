@@ -23,10 +23,10 @@ public abstract class Cuenta{
   /**
    * Constructor para objetos de tipo cuenta
    * 
-     * @param pTipo
-     * @param pNumero
-     * @param pDuenio
-     * @param pMonto
+   * @param pTipo tipo de cuenta
+   * @param pNumero numero de cuenta
+   * @param pDuenio objeto del propietario
+   * @param pMonto monto inicial de la cuenta
    */
   public Cuenta(String pTipo,int pNumero,Cliente pDuenio, double pMonto){
     setTipoCuenta(pTipo);

@@ -5,7 +5,67 @@
  * @version 06/01/2020
  */
 package logicadenegocios;
+import java.util.Calendar;
 
-public class CuentaAhorro {
+public class CuentaAhorro extends Cuenta{
     
+  private static int sCantCuentas = 0;
+  private double cuotaMantenimiento;
+  
+  /**
+   * Metodo constructor para cuenta de ahorro con cuota de mantenimiento por omision
+   * @param pDuenio objeto propietario de la cuenta
+   * @param pMonto monto inicial de la cuenta
+   */
+  public CuentaAhorro(Cliente pDuenio,double pMonto){
+    super("Cuenta de Ahorro",++sCantCuentas,pDuenio,pMonto);
+    setCuotaMantenimiento(300);//couta de mantenimiento por omision
+  }
+  
+  /**
+   * Metodo constructor para cuenta de ahorro con cuota de mantenimiento definida por el usuario
+   * @param pDuenio objeto propietario de la cuenta
+   * @param pMonto monto inicial de la cuenta
+   * @param pCuota couta de mantenimiento de la cuenta
+   */
+  public CuentaAhorro(Cliente pDuenio,double pMonto,double pCuota){
+    super("Cuenta de Ahorro",++sCantCuentas,pDuenio,pMonto);
+    setCuotaMantenimiento(pCuota);
+  }
+
+  public static int getsCantCuentas() {
+    return sCantCuentas;
+  }
+  
+  public static void setsCantCuentas(int sCantCuentas) {
+    CuentaAhorro.sCantCuentas = sCantCuentas;
+  }
+
+  public double getCuotaMantenimiento() {
+    return cuotaMantenimiento;
+  }
+
+  public void setCuotaMantenimiento(double pCoutoMantenimiento) {
+    this.cuotaMantenimiento = pCoutoMantenimiento;
+  }
+  
+  /**
+   * Metodo para realizar el cobro de las comisiones
+   * Se realiza solo si es el primer dia del mes
+   * @return Mensaje de exito, de no aplicar se devuelve cadena de caracteres vacia
+   */
+  public String cobrarComisiones(){
+    String msg = "";
+    Calendar calendario;
+    calendario =  Calendar.getInstance();
+    
+    int dia = calendario.get(Calendar.DAY_OF_MONTH);
+    if(dia == 1){
+      retirar(cuotaMantenimiento);
+      numOperaciones = 0;//se reinicia para el mes siguiente
+      msg += "Se cobró por comisión : "+cuotaMantenimiento;
+    }
+    return msg;
+  }
+  
 }

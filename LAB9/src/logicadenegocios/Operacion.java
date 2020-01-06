@@ -18,8 +18,9 @@ public class Operacion{
   /**
    * Constructor para objetos de tipo Operacion
    * 
-   * @param pNumero numero de operacion, pTipo tipo de operacion,
-   *     pMonto monto de la operacion
+   * @param pNumero numero de operacion
+   * @param pTipo tipo de operacion
+   * @param pMonto monto de la operacion
    */
   public Operacion(int pNumero,String pTipo,double pMonto){
     setNumero(pNumero);
