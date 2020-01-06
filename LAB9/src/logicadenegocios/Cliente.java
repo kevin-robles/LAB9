@@ -14,8 +14,9 @@ public class Cliente{
   /**
    * Constructor para objetos de tipo Cliente
    * 
-   * @param pCedula identificador del cliente, pNombre nombre del cliente, 
-   *     pApellido apellido del cliente
+   * @param pCedula identificador del cliente
+   * @param pNombre nombre del cliente
+   * @param pApellido apellido del cliente
    */
   public Cliente(String pCedula,String pNombre, String pApellido){
     setCedula(pCedula);
