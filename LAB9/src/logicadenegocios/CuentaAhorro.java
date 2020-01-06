@@ -28,20 +28,20 @@ public class CuentaAhorro extends Cuenta{
    * @param pMonto monto inicial de la cuenta
    * @param pCuota couta de mantenimiento de la cuenta
    */
-  public CuentaAhorro(Cliente pDuenio,double pMonto,double pCuota){
-    super("Cuenta de Ahorro",++sCantCuentas,pDuenio,pMonto);
+  public CuentaAhorro(Cliente pDueño,double pMonto,double pCuota){
+    super("Cuenta de Ahorro",++sCantCuentas,pDueño,pMonto);
     setCuotaMantenimiento(pCuota);
   }
 
-  public static void setsCantCuentas(int sCantCuentas) {
+  public static void setCantCuentas(int sCantCuentas) {
     CuentaAhorro.sCantCuentas = sCantCuentas;
   }
   
-  public void setCuotaMantenimiento(double pCoutoMantenimiento) {
-    this.cuotaMantenimiento = pCoutoMantenimiento;
+  public void setCuotaMantenimiento(double pCoutaMantenimiento) {
+    this.cuotaMantenimiento = pCoutaMantenimiento;
   }
   
-  public static int getsCantCuentas() {
+  public static int getCantCuentas() {
     return sCantCuentas;
   }
 
