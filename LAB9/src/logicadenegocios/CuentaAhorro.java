@@ -33,20 +33,20 @@ public class CuentaAhorro extends Cuenta{
     setCuotaMantenimiento(pCuota);
   }
 
-  public static int getsCantCuentas() {
-    return sCantCuentas;
-  }
-  
   public static void setsCantCuentas(int sCantCuentas) {
     CuentaAhorro.sCantCuentas = sCantCuentas;
+  }
+  
+  public void setCuotaMantenimiento(double pCoutoMantenimiento) {
+    this.cuotaMantenimiento = pCoutoMantenimiento;
+  }
+  
+  public static int getsCantCuentas() {
+    return sCantCuentas;
   }
 
   public double getCuotaMantenimiento() {
     return cuotaMantenimiento;
-  }
-
-  public void setCuotaMantenimiento(double pCoutoMantenimiento) {
-    this.cuotaMantenimiento = pCoutoMantenimiento;
   }
   
   /**
