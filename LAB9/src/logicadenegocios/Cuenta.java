@@ -1,8 +1,8 @@
 /**
  * Una clase simple de una cuenta bancaria
  *
- * @author Kevin Robles
- * @version 16/12/2019
+ * @author Kevin Robles, Oscar Trejos
+ * @version 06/01/2020
  */
 package logicadenegocios;
 import java.util.Date;
@@ -10,25 +10,28 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class Cuenta{
+public abstract class Cuenta{
     
-  private int numCuenta = 0;
-  private Cliente duenio = null;
-  private double saldo = 0;
-  private static int cantCuentas = 0;
-  private Date fechaCreacion;
-  private ArrayList<Operacion> operaciones;
-  private int numOperaciones = 0;
+  protected int numCuenta = 0;
+  protected Cliente duenio = null;
+  protected double saldo = 0;
+  protected Date fechaCreacion;
+  protected ArrayList<Operacion> operaciones;
+  protected int numOperaciones = 0;
+  protected String tipoCuenta;
   
   /**
    * Constructor para objetos de tipo cuenta
    * 
-   * @param pNombre nombre del dueño de la cuenta
+     * @param pTipo
+     * @param pNumero
+     * @param pDuenio
+     * @param pMonto
    */
-  public Cuenta(Cliente pDuenio, double pMonto){
+  public Cuenta(String pTipo,int pNumero,Cliente pDuenio, double pMonto){
+    setTipoCuenta(pTipo);
+    setNumCuenta(pNumero);
     operaciones = new ArrayList<Operacion>();
-    cantCuentas++;
-    setNumCuenta(cantCuentas);
     depositar(pMonto);
     setDuenio(pDuenio);
     setFechaCreacion();
@@ -65,6 +68,14 @@ public class Cuenta{
     Calendar calendario;
     calendario = Calendar.getInstance();
     fechaCreacion = calendario.getTime();
+  }
+  
+  public String getTipoCuenta(){
+    return this.tipoCuenta; 
+  }
+  
+  public void setTipoCuenta(String pTipoCuenta){
+    this.tipoCuenta = pTipoCuenta;
   }
   
   
@@ -112,6 +123,12 @@ public class Cuenta{
   }
   
   /**
+   * Metodo abstracto para el cobro de comisiones
+   * @return mensaje de error, o exito
+   */
+  public abstract String cobrarComisiones();
+  
+  /**
    * Metodo para convertir el objeto en una cadena de caracteres
    * 
    * @return el objeto en cadena de caracteres
@@ -119,6 +136,7 @@ public class Cuenta{
   public String toString(){
     String msg;
     msg = "Cuenta Número: "+getNumCuenta()+"\n";
+    msg+= "Tipo: "+ getTipoCuenta()+"\n";
     msg+= "Fecha Creación: "+getFechaCreacion()+"\n";
     msg+= "Dueño: "+duenio.toString()+"\n";
     msg+= "Saldo: "+getSaldo()+"\n";

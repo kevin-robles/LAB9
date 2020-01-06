@@ -1,8 +1,8 @@
 /**
  * Pequeña clase de operaciones para una cuenta bancaria
  *
- * @author Kevin Robles 
- * @version 16/12/2019
+ * @author Kevin Robles, Oscar Trejos
+ * @version 06/01/2020
  */
 package logicadenegocios;
 import java.util.Date;
