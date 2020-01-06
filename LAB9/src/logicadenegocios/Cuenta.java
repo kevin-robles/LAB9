@@ -97,7 +97,6 @@ public abstract class Cuenta{
     }
   }
   
-  
   private boolean validarRetiro(double pMonto){
     return pMonto <= saldo;  
   }

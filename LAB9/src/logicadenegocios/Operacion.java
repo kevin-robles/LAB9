@@ -30,21 +30,17 @@ public class Operacion{
     setFechaOperacion();
   }
     
-    
   public void setNumero(int pNumero){
     this.numero = pNumero;
   }
-  
   
   public void setTipo(String pTipo){
     this.tipo = pTipo;
   }
   
-  
   public void setMonto(double pMonto){
     this.monto = pMonto;
   }
-  
   
   private void setFechaOperacion(){
     Calendar calendario;
@@ -52,21 +48,17 @@ public class Operacion{
     fechaOperacion = (Date)calendario.getTime();
   }
   
-  
   public int getNumero(){
     return this.numero;
   }
-  
   
   public String getTipo(){
     return this.tipo;  
   }
   
- 
   public double getMonto(){
     return this.monto;
   }
-  
   
   public String getFechaOperacion(){
     SimpleDateFormat mascara = new SimpleDateFormat("dd/MM/yy");
@@ -117,7 +109,5 @@ public class Operacion{
     }
     return true;
     }
-  
-  
-    
+
 }
