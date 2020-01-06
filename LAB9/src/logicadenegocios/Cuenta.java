@@ -37,31 +37,12 @@ public abstract class Cuenta{
     setFechaCreacion();
   }
   
-  
-  public int getNumCuenta(){
-    return numCuenta;
-  }
-  
   public void setNumCuenta(int pNumCuenta){
     numCuenta = pNumCuenta;
   }
   
-  public Cliente getDuenio(){
-    return duenio;
-  }
-  
   public void setDuenio(Cliente pCliente){
     duenio = pCliente;
-  }
-  
-  public double getSaldo(){
-    return saldo;
-  }
-  
-  
-  public String getFechaCreacion(){
-    SimpleDateFormat mascara = new SimpleDateFormat("dd/MM/yy");
-    return mascara.format(fechaCreacion);
   }
   
   public void setFechaCreacion(){
@@ -70,14 +51,30 @@ public abstract class Cuenta{
     fechaCreacion = calendario.getTime();
   }
   
-  public String getTipoCuenta(){
-    return this.tipoCuenta; 
-  }
-  
   public void setTipoCuenta(String pTipoCuenta){
     this.tipoCuenta = pTipoCuenta;
   }
   
+  public int getNumCuenta(){
+    return numCuenta;
+  }
+  
+  public Cliente getDuenio(){
+    return duenio;
+  }
+  
+  public double getSaldo(){
+    return saldo;
+  }
+  
+  public String getFechaCreacion(){
+    SimpleDateFormat mascara = new SimpleDateFormat("dd/MM/yy");
+    return mascara.format(fechaCreacion);
+  }
+  
+  public String getTipoCuenta(){
+    return this.tipoCuenta; 
+  }
   
   private boolean validarDeposito(double pMonto){
     return pMonto > 0;

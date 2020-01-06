@@ -8,6 +8,7 @@ package logicadenegocios;
 import java.util.Date;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.util.Objects;
 
 public class Operacion{
   private int numero;
@@ -84,5 +85,39 @@ public class Operacion{
         "\t"+getMonto()+"\n";
     return msg;
   }
+
+   /**
+   * Metodo para saber si dos objetos son iguales
+   * 
+   * @param o cualquier tipo de obajeto
+   * @return booleano que indica si los objetos son iguales
+   */
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null) {
+      return false;
+    }
+    if (getClass() != o.getClass()) {
+      return false;
+    }
+    final Operacion other = (Operacion) o;
+    if (this.numero != other.numero) {
+      return false;
+    }
+    if (Double.doubleToLongBits(this.monto) != Double.doubleToLongBits(other.monto)) {
+      return false;
+    }
+    if (!Objects.equals(this.tipo, other.tipo)) {
+      return false;
+    }
+    if (!Objects.equals(this.fechaOperacion, other.fechaOperacion)) {
+      return false;
+    }
+    return true;
+    }
+  
+  
     
 }
