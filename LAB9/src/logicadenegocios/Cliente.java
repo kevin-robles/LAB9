@@ -24,36 +24,29 @@ public class Cliente{
     setApellido(pApellido);
   }
   
-  
   public void setCedula(String pCedula){
     this.cedula = pCedula;  
   }
   
-  
   public void setNombre(String pNombre){
     this.nombre = pNombre;  
-  }
-  
+  } 
   
   public void setApellido(String pApellido){
     this.apellido = pApellido;  
   }
   
-  
   public String getCedula(){
     return this.cedula;
   }
-  
   
   public String getNombre(){
     return this.nombre;
   }
   
-  
   public String getApellido(){
     return this.apellido;
   }
-  
   
   /**
    * Metodo para convertir el objeto en una cadena de caracteres
@@ -66,7 +59,6 @@ public class Cliente{
     msg+= "Nombre:\t"+getNombre()+" "+getApellido();
     return msg;
   }
-  
   
   /**
    * Metodo para saber si dos objetos son iguales

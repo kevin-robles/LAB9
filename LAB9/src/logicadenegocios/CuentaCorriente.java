@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 public class CuentaCorriente extends Cuenta {
   
-  private static int scantCuentas = 0;
+  private static int sCantCuentas = 0;
   private int operacionesExentas;
   private double cuotaOperaciones;
   
@@ -19,7 +19,7 @@ public class CuentaCorriente extends Cuenta {
    * @param pMonto monto inicial de la cuenta
    */
   public  CuentaCorriente(Cliente pDuenio, double pMonto) {
-    super ("Cuenta Corriente ",++scantCuentas, pDuenio,pMonto);
+    super ("Cuenta Corriente ",++sCantCuentas, pDuenio,pMonto);
     setOperacionesExentas(30);
     setCuotaOperaciones(30);
   }
@@ -33,18 +33,25 @@ public class CuentaCorriente extends Cuenta {
    */
   public  CuentaCorriente(Cliente pDueño, double pMonto,
   int pOperExentas, double pCuotaOper) {
-    super ("Cuenta Corriente ",++scantCuentas, pDueño,pMonto);
+    super ("Cuenta Corriente ",++sCantCuentas, pDueño,pMonto);
     setOperacionesExentas(pOperExentas);
     setCuotaOperaciones(pCuotaOper);
   }
-  
-  
+
+  public static void setsCantCuentas(int sCantCuentas) {
+    CuentaCorriente.sCantCuentas = sCantCuentas;
+  }
+    
   public void setOperacionesExentas(int pOperacionesExentas){
     this.operacionesExentas = pOperacionesExentas;  
   }
   
   public void setCuotaOperaciones(double pCuotaOperaciones){
     this.cuotaOperaciones = pCuotaOperaciones;  
+  }
+
+  public static int getsCantCuentas() {
+    return sCantCuentas;
   }
   
   public int getOperacionesExentas(){
@@ -66,6 +73,7 @@ public class CuentaCorriente extends Cuenta {
     double monto;
     Calendar calendario = Calendar.getInstance();
     int dia = calendario.get(Calendar.DAY_OF_MONTH);
+    
     if (dia == 1){
       operacNoExentas = numOperaciones - getOperacionesExentas();
       if(operacNoExentas > 0){
